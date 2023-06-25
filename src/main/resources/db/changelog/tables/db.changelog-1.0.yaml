@@ -1,0 +1,15 @@
+databaseChangeLog:
+-  changeSet:
+        id:  createTable-example
+        author:  reinaldo
+        changes:
+             -  createTable:
+                     catalogName:  liquibasedb
+                     columns:
+                          -  column:
+                                  name:  address
+                                  type:  varchar(255)
+                     remarks:  A String
+                     schemaName:  public
+                     tableName:  person
+                     tablespace:  A String
