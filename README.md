@@ -93,4 +93,23 @@ En este caso ocuparemos `yaml` pero Liquibase admite los siguientes formatos:
 CREATE  TABLE  department.person  (address  VARCHAR(255)  NULL)  COMMENT='A String';
 ALTER  TABLE  department.person  COMMENT  =  'A String';
 ```
-Escoge el lenguaje que mas te acomode
+Escoge el lenguaje que mas te acomode.
+
+Ahora ya podras ejecutar tu proyecto y crear una tabla en tu database.
+Esto creara los siguientes tablas:
+
+![Image text](https://github.com/dev-rech/images/blob/master/database_liquibase_test.png)
+
+###### @Tabla DATABASECHANGELOG
+
+Liquibase usa la tabla DATABASECHANGELOG para rastrear qué conjuntos de cambios se han ejecutado. Si la tabla no existe en la base de datos, Liquibase crea una automáticamente.
+
+##### COLUMNAS
+La tabla rastrea cada conjunto de cambios como una fila, identificada por una combinación de las columnas `id`, `authory filename`. No hay clave principal en la tabla. Esto es para evitar cualquier restricción específica de la base de datos sobre la longitud de las claves. El compuesto de `id`, `authory filename` es único en todas las filas de la tabla.
+
+###### @Tabla DATABASECHANGELOGLOCK
+
+Liquibase usa la tabla DATABASECHANGELOGLOCK para garantizar que solo se ejecute una instancia de Liquibase a la vez. Si la tabla no existe en la base de datos, Liquibase crea una automáticamente.
+
+Cuando realiza una actualización de la base de datos, Liquibase lee de la tabla DATABASECHANGELOG para determinar qué conjuntos de cambios deben ejecutarse. Para evitar conflictos entre actualizaciones simultáneas, lo que puede ocurrir si varios desarrolladores usan la misma instancia de base de datos o si varios servidores en un clúster ejecutan automáticamente Liquibase al inicio, la tabla DATABASECHANGELOGLOCK establece la `LOCKED` columna en 1 cuando se está ejecutando una actualización. Si realiza otra actualización durante este tiempo, Liquibase espera hasta que se libera el bloqueo antes de ejecutarlo.
+
