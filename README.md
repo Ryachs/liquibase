@@ -15,7 +15,7 @@ https://docs.liquibase.com/change-types/home.html
 ```
 
 
-###### @CREAR PROYECTO LIQUIBASE SPRING BOOT:
+###### CREAR PROYECTO LIQUIBASE SPRING BOOT:
 
 ![Image text](https://github.com/dev-rech/images/blob/master/liquibase_spring.png)
 
@@ -100,14 +100,14 @@ Esto creara los siguientes tablas:
 
 ![Image text](https://github.com/dev-rech/images/blob/master/database_liquibase_test.png)
 
-###### @Tabla DATABASECHANGELOG
+###### Tabla DATABASECHANGELOG
 
 Liquibase usa la tabla DATABASECHANGELOG para rastrear qué conjuntos de cambios se han ejecutado. Si la tabla no existe en la base de datos, Liquibase crea una automáticamente.
 
 ##### COLUMNAS
 La tabla rastrea cada conjunto de cambios como una fila, identificada por una combinación de las columnas `id`, `authory filename`. No hay clave principal en la tabla. Esto es para evitar cualquier restricción específica de la base de datos sobre la longitud de las claves. El compuesto de `id`, `authory filename` es único en todas las filas de la tabla.
 
-###### @Tabla DATABASECHANGELOGLOCK
+###### Tabla DATABASECHANGELOGLOCK
 
 Liquibase usa la tabla DATABASECHANGELOGLOCK para garantizar que solo se ejecute una instancia de Liquibase a la vez. Si la tabla no existe en la base de datos, Liquibase crea una automáticamente.
 
