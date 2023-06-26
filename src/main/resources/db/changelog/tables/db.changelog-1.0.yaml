@@ -13,3 +13,6 @@ databaseChangeLog:
                      schemaName:  public
                      tableName:  person
                      tablespace:  A String
+
+# se realizara la creacion de tabla en este archivo y se hara referencia a este desde
+# el archivo principal "db.changelog-master.yaml"
