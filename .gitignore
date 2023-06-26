@@ -25,3 +25,9 @@ replay_pid*
 
 # Intellij IDEA
 *.idea
+
+# .gradle
+*.gradle
+
+# Folder Build
+build
